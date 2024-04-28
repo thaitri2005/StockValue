@@ -1,13 +1,14 @@
-// This module will handle fetching historical stock data.
-const yahooFinance = require('yahoo-finance');
+const yahooFinance = require('yahoo-finance2').default;
 
 async function getHistoricalData(symbol, from, to) {
     try {
-        const historicalData = await yahooFinance.historical({
-            symbol: symbol,
-            from: from,
-            to: to
-        });
+        const queryOptions = {
+            period1: from,
+            period2: to,
+            // Ensure only valid parameters are included here
+            // events: 'div,splits' might have been here previously and should be removed or validated
+        };
+        const historicalData = await yahooFinance.historical(symbol, queryOptions);
         return historicalData;
     } catch (error) {
         console.error('Error fetching historical data:', error);

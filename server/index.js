@@ -17,7 +17,12 @@ const errorHandler = require('./src/utils/errorHandler');
 
 // Serve static files from the client directory
 // Make sure the path is correct if your client and server are in the same project
-app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static(path.join(__dirname, 'stock-price-tracker')));
+
+// Root Route
+app.get('/', (req, res) => {
+    res.send('Welcome to the Stock Price Tracker Server!');
+});
 
 // Real-time data route
 app.get('/api/realtime/:symbol', async (req, res) => {
