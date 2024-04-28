@@ -1,5 +1,18 @@
 function errorHandler(err, req, res, next) {
-    console.error(err); // Log error information for debugging
-    res.status(500).json({ error: 'Internal server error' }); // Send a generic error message to the client
+    console.error('Error:', {
+        message: err.message,
+        stack: process.env.NODE_ENV === 'development' ? err.stack : undefined,
+        path: req.path
+    });
+
+    const statusCode = err.statusCode || 500;
+    const errorMessage = statusCode === 500 ? 'Internal Server Error' : err.message;
+
+    res.status(statusCode).json({
+        error: {
+            message: errorMessage,
+            ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+        }
+    });
 }
 module.exports = errorHandler;
