@@ -15,6 +15,7 @@ describe('getHistoricalData', () => {
 
     beforeEach(() => {
         yahooFinance.historical.mockClear();
+        console.error = jest.fn();
     });
 
     test('fetches historical data successfully', async () => {

@@ -13,6 +13,7 @@ describe('getRealTimeData', () => {
 
     beforeEach(() => {
         yahooFinance.quote.mockClear();
+        console.error = jest.fn();
     });
 
     test('fetches real-time data successfully', async () => {
