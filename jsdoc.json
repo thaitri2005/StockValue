@@ -1,0 +1,11 @@
+{
+    "source": {
+      "include": ["./server/src", "./stock-price-tracker/src"], 
+      "includePattern": ".+\\.js(doc|x)?$", 
+      "excludePattern": "(^|\\/|\\\\)_"
+    },
+    "opts": {
+      "destination": "./docs" 
+    }
+  }
+  
