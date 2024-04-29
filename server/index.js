@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const http = require('http');
@@ -15,9 +16,9 @@ const { getRealTimeData } = require('./src/api/realTimeData');
 const { getHistoricalData } = require('./src/api/historicalData');
 const errorHandler = require('./src/utils/errorHandler');
 
-// Serve static files from the client directory
-// Make sure the path is correct if your client and server are in the same project
-app.use(express.static(path.join(__dirname, 'stock-price-tracker')));
+const clientPath = process.env.CLIENT_DIR || path.join(__dirname, 'stock-price-tracker');
+app.use(express.static(clientPath));
+
 
 // Root Route
 app.get('/', (req, res) => {
@@ -56,3 +57,7 @@ const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+// Other setup remains unchanged
+
+module.exports = { app, server };  // Export both app and server if needed elsewhere
