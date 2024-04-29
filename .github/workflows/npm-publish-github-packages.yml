@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [16.x, 18.x, 20.x]  # Include 20.x if it's available and stable by the time of your implementation
 
     steps:
     - uses: actions/checkout@v2
