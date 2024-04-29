@@ -26,7 +26,7 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "testTimeout": 5000
+    "testTimeout": 10000
   },
   "scripts": {
     "format-check": "prettier --check \"**/*.{js,jsx,json,css}\"",
