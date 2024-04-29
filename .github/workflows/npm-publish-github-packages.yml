@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]  # Adjust this to the versions you want to support
+        node-version: [16.x, 18.x, 20.x]  
 
     steps:
     - uses: actions/checkout@v2
@@ -27,13 +27,10 @@ jobs:
       run: npm ci
 
     - name: Check Formatting
-      run: npm run format-check  # Add a script in your package.json to check formatting
+      run: npm run format-check  
 
     - name: Build
       run: npm run build --if-present
 
     - name: Run Tests
       run: npm test
-
-    - name: Generate Documentation
-      run: npm run docs  # Optional: generate docs if your project requires it
