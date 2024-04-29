@@ -28,6 +28,11 @@
     "testTimeout": 10000
   },
   "scripts": {
-    "test": "jest"
+    "lint": "eslint . --ext .js,.jsx",  
+    "format-check": "prettier --check .",
+    "build": "your-build-command",
+    "test": "jest",  
+    "docs": "generate-docs-command"  
   }
+  
 }
