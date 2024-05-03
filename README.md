@@ -37,11 +37,10 @@ To get a local copy up and running, follow these simple steps:
    ```bash
    npm install
    ```
-3. Start the server:
+3. Start the program:
    ```bash
     npm start
     ```
-4. Open your browser and visit `http://localhost:3001` to view the application.
 
 ## Contributing
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
